@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MidTerm</title>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+           crossorigin=""/>
+
+         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+           crossorigin=""></script>
+		   
+		   <style type="text/css">
+				html, body { margin: 0; padding: 0; height: 100%; }
+				#map { min-height: 100%; }
+				</style>
+
+    </head>
+
+    <body>
+        <div id="map" style="height: 500px"></div>
+
+        <script type="text/javascript">
+
+
+
+          var map = L.map('map', {
+              center: [41.98, -87.72],
+              zoom: 4
+			 
+          });
+
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 20,
+               minZoom: 17		  
+			  
+            }).addTo(map);
+			
+			var car = L.icon({
+			iconUrl: 'car.png', // url that links to the icon image file, saved in the same folder as the current page 
+			iconSize:     [38, 38], // size of the icon image in pixels
+			iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+			popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+});
+			
+			var book = L.icon({
+			iconUrl: 'open-book.png', // url that links to the icon image file, saved in the same folder as the current page 
+			iconSize:     [38, 38], // size of the icon image in pixels
+			iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+			popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+});
+
+
+			var bed = L.icon({
+			iconUrl: 'bed.png', // url that links to the icon image file, saved in the same folder as the current page 
+			iconSize:     [38, 38], // size of the icon image in pixels
+			iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+			popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+});
+		  var marker1 = L.marker([41.98043,-87.71698],{icon: book}).addTo(map);
+		  var marker2 = L.marker([41.97967,-87.71996],{icon: bed}).addTo(map);
+		  var marker3 = L.marker([41.98150,-87.71869],{icon: book}).addTo(map);
+		  var marker4 = L.marker([41.98032,-87.71923],{icon: book}).addTo(map);
+		  var marker5 = L.marker([41.98103,-87.72024],{icon: car}).addTo(map);
+		 
+		  
+		     marker1.bindPopup("BBH Building");
+		     marker2.bindPopup("The Nest");
+			 marker3.bindPopup("Student Union");
+			 marker4.bindPopup("Ronald Williams Library");
+			 marker5.bindPopup("Parking Lot F");
+
+             marker1.bindPopup('<p style="color:seagreen; font-weight:bold"> BBH Building<br> A science building where many students have class.<br> Meetings with professors, computer lab, and even a green house.</p>');
+             marker2.bindPopup('<p style="color:seagreen; font-weight:bold"> The Nest<br> This building is where the dorms are located, allowing students to live on campus.</p>');
+			 marker3.bindPopup('<p style="color:seagreen; font-weight:bold"> Student Union<br> There are many events held here such as club events and more.<br> Order from the cafe and socialize!</p>');
+			 marker4.bindPopup('<p style="color:seagreen; font-weight:bold"> Ronald Williams Library<br> Order and recieve textbooks, tutoring, and studying.</p>');
+			 marker5.bindPopup('<p style="color:seagreen; font-weight:bold"> Parking Lot F<br> One of the many parking lots on campus.<br> A parking fee must be paid</p>');
+        </script>
+   </body>
+</html>
